@@ -1,0 +1,12 @@
+.wrapper {
+  padding: 10px;
+  &__item{
+    font-size: 18px;
+    &--danger{
+      color: orange;
+    }
+    &--success{
+      color: rgb(115, 175, 25);
+    }
+  }
+}
