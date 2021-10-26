@@ -20,7 +20,7 @@ const Grandson = () => {
   };
 
   return (
-    //Consumer容器,可以拿到上文传递下来的name属性,并可以展示对应的值
+    // Consumer容器,可以拿到上文传递下来的name属性,并可以展示对应的值
     <Consumer>
       {(name) => (
         <ConfigProvider prefixCls="ant">
@@ -35,6 +35,7 @@ const Grandson = () => {
               <p>Some contents...</p>
               <p>Some contents...</p>
             </Modal>
+            <p className={styles["desc"]}> Consumer容器,可以拿到上文传递下来的name属性,并可以展示对应的值</p>
           </div>
         </ConfigProvider>
       )}

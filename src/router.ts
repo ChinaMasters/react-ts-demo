@@ -6,6 +6,7 @@ const EditableTable = lazy(() => import("./EditableTable"));
 const EditCell = lazy(() => import("./EditableTable/EditCell"));
 const Study = lazy(() => import("./Study"));
 const Context = lazy(() => import("./Context"));
+const Store = lazy(() => import("./Store"));
 
 const routes = [
   {
@@ -37,6 +38,11 @@ const routes = [
     name: "Context",
     component: Context,
     path: "/Context",
+  },
+  {
+    name: "Store",
+    component: Store,
+    path: "/Store",
   },
 ];
 

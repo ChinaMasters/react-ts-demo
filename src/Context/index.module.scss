@@ -10,3 +10,11 @@
     }
   }
 }
+
+.box{
+  :global {
+    .desc {
+      color: peru;
+    }
+  }
+}
