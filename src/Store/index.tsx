@@ -3,6 +3,8 @@ import { Divider, Button } from "antd";
 import { decrement, increment, incrementAsync } from "./actions";
 import Collection from "./Collection";
 
+import { store } from "../index";
+
 // 创建类型接口
 export interface IProps {
   value: number;
@@ -19,9 +21,15 @@ const Counter = (props: IProps) => {
       <Divider></Divider>
       <Button onClick={() => onIncrement(1)}>onIncrement</Button>
       <Divider></Divider>
-      <Button onClick={() => onDecrement(1)}>onIncrement</Button>
+      <Button
+        onClick={() => {
+          store.dispatch(decrement(1));
+        }}
+      >
+        onIncrement
+      </Button>
       <Divider></Divider>
-      <Button onClick={() => onIncrementAsync(3)}>onIncrement</Button>
+      <Button onClick={() => onIncrementAsync(3)}>onIncrementAsync</Button>
       <Divider></Divider>
       <Collection></Collection>
     </div>

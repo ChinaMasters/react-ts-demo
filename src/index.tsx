@@ -9,8 +9,34 @@ import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import "./index.css";
 
+// @ts-ignore
+const logger1 = (store) => (next) => (action) => {
+  console.group("logger");
+  console.warn("dispatching", action);
+
+  let result = next(action);
+
+  console.warn("next state", store.getState());
+  console.groupEnd();
+
+  return result;
+};
+
+// @ts-ignore
+const logger2 = (store) => (next) => (action) => {
+  console.group("logger2");
+  console.warn("dispatching2", action);
+
+  let result = next(action);
+
+  console.warn("next state2", store.getState());
+  console.groupEnd();
+
+  return result;
+};
+
 // 1、创建 store
-const store = createStore(reducer, applyMiddleware(thunk));
+export const store = createStore(reducer, applyMiddleware(thunk, logger2, logger1));
 
 ReactDOM.render(
   <Provider store={store}>

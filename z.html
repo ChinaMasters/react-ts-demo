@@ -7,36 +7,37 @@
     <title>Document</title>
   </head>
   <body>
-    <table border="1" width="200 ">
-      <tr>
-        <td colspan="4">ss</td>
-      </tr>
-      <tr>
-        <td width="25% ">　</td>
-        <td width="25% ">　</td>
-        <td width="25% ">　</td>
-        <td width="25% ">　</td>
-      </tr>
-      <tr>
-        <td width="25% " rowspan="2">　</td>
-        <td width="25% ">　</td>
-        <td width="25% ">　</td>
-        <td width="25% ">　</td>
-      </tr>
-      <tr>
-        <td width="25% ">　</td>
-        <td width="25% " rowspan="3">　</td>
-        <td width="25% ">　</td>
-      </tr>
-      <tr>
-        <td width="25% " colspan="2">　</td>
-        <td width="25% ">　</td>
-      </tr>
-      <tr>
-        <td width="25% ">　</td>
-        <td width="25% ">　</td>
-        <td width="25% ">　</td>
-      </tr>
-    </table>
+    <div id="app">
+      <button onclick="customResize()">btn</button>
+    </div>
+    <script>
+      var event = document.createEvent("HTMLEvents");
+      event.initEvent("resize", true, true);
+      window.onresize = function () {
+        console.log("触发成功1");
+      };
+      window.addEventListener("resize", function () {
+        console.log("触发成功2");
+      });
+
+      //自定义事件
+      var app = document.getElementById("app");
+      var myEvent = document.createEvent("HTMLEvents");
+      myEvent.data = "Hello world";
+      myEvent.initEvent("myOwnEvent", true, true);
+      app.addEventListener(
+        "myOwnEvent",
+        function (e) {
+          console.log("我是自定义事件");
+          console.log(e.data);
+        },
+        false
+      );
+
+      function customResize() {
+        window.dispatchEvent(event);
+        app.dispatchEvent(myEvent);
+      }
+    </script>
   </body>
 </html>
